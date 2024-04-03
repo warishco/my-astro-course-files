@@ -1,0 +1,11 @@
+{
+  "links": [
+    {
+      "id": "56b9",
+      "title": "Sample Link",
+      "description": "This is a sample description",
+      "url": "https://google.com",
+      "isRead": false
+    }
+  ]
+}
