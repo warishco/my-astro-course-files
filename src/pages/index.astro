@@ -1,10 +1,20 @@
 ---
+import { db } from "astro:db";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Logs } from "astro:db";
 const { userMessage } = Astro.locals;
+
+const logs = await db.select().from(Logs);
 ---
 
 <BaseLayout>
   <h1>Homepage Middleware</h1>
-  <p>{userMessage}</p>
-  <p>PRIVATE INFO</p>
+  {
+    logs.map((l) => (
+      <ul>
+        <li>URL: {l.url}</li>
+        <li>DATE: {l.date_accessed.toLocaleDateString()}</li>
+      </ul>
+    ))
+  }
 </BaseLayout>
