@@ -20,9 +20,22 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
-    <form>
+    <form action="/api/logout.json" data-authForm>
       <button>Logout</button>
     </form>
+
+    <script>
+      import { formSubmit } from "../lib/formSubmit";
+
+      const forms = document.querySelectorAll(
+        "[data-authForm]"
+      ) as NodeListOf<HTMLFormElement>;
+
+      forms.forEach((form) => {
+        formSubmit(form);
+      });
+    </script>
+
     <style is:global>
       @import "https://unpkg.com/open-props";
       @import "https://unpkg.com/open-props/normalize.min.css";
