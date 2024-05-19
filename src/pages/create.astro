@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Create Your Account">
+  <h1>Create Account</h1>
+  <form>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+    <button>Create Account</button>
+  </form>
+  <p>Have an account? <a href="login">Login instead</a></p>
+</Layout>
