@@ -1,5 +1,11 @@
 ---
-import data from "../data/cardData.json";
+
+// components
+import PricingCard from "../components/PricingCard.astro";
+
+// data
+import pricingCardData from "../data/cardData.json";
+import type { Image } from "astro:assets";
 ---
 
 <html lang="en">
@@ -12,5 +18,6 @@ import data from "../data/cardData.json";
   </head>
   <body>
     <!-- Place pricing section here -->
+    {pricingCardData.map(card => <PricingCard {...card} />)}
   </body>
 </html>
