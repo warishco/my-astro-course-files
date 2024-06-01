@@ -1,5 +1,8 @@
 ---
 
+//components
+import Button from "./Button.astro";
+
 //library imports
 import { Icon } from "astro-icon/components";
 
@@ -25,7 +28,9 @@ const { tier, most_popular, amount_per_month, title, description, btn_text, feat
     <p class="desc">{description}</p>
 
     <!-- button -->
-    <!-- <Button></Button> -->
+    <Button id={tier.toLowerCase()}>
+      {btn_text}
+    </Button>
 
     <!-- features -->
     <ul>
