@@ -3,9 +3,13 @@
 // components
 import PricingCard from "../components/PricingCard.astro";
 
+//import styles
+import "../styles/main.css";
+
 // data
 import pricingCardData from "../data/cardData.json";
 import type { Image } from "astro:assets";
+
 ---
 
 <html lang="en">
@@ -18,6 +22,26 @@ import type { Image } from "astro:assets";
   </head>
   <body>
     <!-- Place pricing section here -->
-    {pricingCardData.map(card => <PricingCard {...card} />)}
+    <main>
+      <div class="card-wrapper">
+        {pricingCardData.map(card => <PricingCard {...card} />)}
+      </div>
+    </main>
+    <style>
+      main {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: var(--space--xl);
+      }
+      
+      .card-wrapper {
+        display: flex;
+        gap: var(--space--xl);
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
   </body>
 </html>
