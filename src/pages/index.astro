@@ -10,6 +10,20 @@ import "../styles/main.css";
 import pricingCardData from "../data/cardData.json";
 import type { Image } from "astro:assets";
 
+// types
+export type Card = {
+  tier: string;
+  most_popular: boolean;
+  amount_per_month: number;
+  title: string;
+  description: string;
+  btn_text: string;
+  features: {
+    title: string;
+    checked: boolean;
+  }[];
+};
+
 ---
 
 <html lang="en">
@@ -24,7 +38,7 @@ import type { Image } from "astro:assets";
     <!-- Place pricing section here -->
     <main>
       <div class="card-wrapper">
-        {pricingCardData.map(card => <PricingCard {...card} />)}
+        {pricingCardData.map(card => <PricingCard data={card} />)}
       </div>
     </main>
     <style>
